@@ -14,6 +14,10 @@ This project is designed as a clean, modular baseline that demonstrates an end-t
 - Reranks retrieved chunks for precision
 - Generates final answers grounded in retrieved context with source attribution
 
+
+## Pipeline
+![rag_pipeline](https://github.com/user-attachments/assets/3b022a26-b6bf-433d-8d69-ec7bf7596990)
+
 ## Tech Stack
 
 - Python
