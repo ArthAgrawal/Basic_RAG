@@ -1,8 +1,6 @@
 # Basic RAG (PDF Question Answering)
 
-A Retrieval-Augmented Generation (RAG) project that answers user questions from local PDF documents using semantic search, reranking, and LLM-based generation.
-
-This project is designed as a clean, modular baseline that demonstrates an end-to-end RAG pipeline recruiters can quickly evaluate.
+A Retrieval-Augmented Generation (RAG) project that answers user questions from local PDF documents using semantic search, query expansion, reranking, and LLM-based generation.
 
 ## What This Project Does
 
@@ -73,6 +71,7 @@ Basic_RAG/
 - For each query variant, top-5 chunks are retrieved from FAISS
 - Retrieved chunks are deduplicated by chunk text
 - Top-5 chunks are reranked by cross-encoder
+- Note, there are two ways I have shown for retrieval. One is using OpenAI for which an API Key is needed. The second, is using Ollama and using a locally downloaded model.
 
 5. Generation
 - Final top reranked chunks are provided to the LLM
@@ -160,17 +159,6 @@ Final Answer:
 ...
 ```
 
-## Notes for Recruiters and Reviewers
-
-- Modular design: each RAG stage is separated by responsibility.
-- Practical engineering: embeddings and FAISS index are cached to avoid repeated heavy setup.
-- Retrieval quality pattern: query expansion (recall) + cross-encoder reranking (precision).
-- Source-aware prompts: generation includes source tags for explainability.
-- Easy to extend:
-	- add multi-file corpora
-	- switch embedding/rerank models
-	- add evaluation harness and metrics
-	- expose as API/UI
 
 ## Important Operational Notes
 
@@ -179,13 +167,6 @@ Final Answer:
 	- `storage/index.faiss`
 - The current ingestion path loads PDFs (`*.pdf`) only.
 
-## Roadmap Ideas
-
-- Add automated evaluation metrics (Recall@K, MRR, faithfulness checks)
-- Add chunk-level metadata like page number and section title
-- Add hybrid retrieval (BM25 + dense retrieval)
-- Add a simple web interface (Streamlit/FastAPI)
-- Add test coverage for chunking/retrieval/reranking contracts
 
 ## License
 
