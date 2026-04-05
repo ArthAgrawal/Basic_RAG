@@ -168,7 +168,6 @@ Final Answer:
 - The current ingestion path loads PDFs (`*.pdf`) only.
 
 
-## License
 
 ## License
 
